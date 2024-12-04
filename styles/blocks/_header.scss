@@ -1,0 +1,79 @@
+header{
+    font-family: 'Inter Tight'; 
+}
+
+.headerButtons {
+    button {
+        padding: 12px 12px; // внутренние отступы для кнопок
+        border: 1px solid #FBFBFB66; // видимая рамка для кнопок
+        border-radius: 18px; // овальная форма
+        background-color: transparent; // прозрачный фон
+        color: var(--color-white); // цвет текста
+        transition: background-color 0.3s, border-color 0.3s; // плавный переход
+
+        // При наведении
+        &:hover {
+            background-color: #f0f0f0; // светлый фон при наведении
+            border-color: #333; // цвет рамки при наведении
+            cursor: pointer; // курсор как указатель
+        }
+          
+        
+    }
+
+    // Стили для кнопки Shop Now
+    .btn-shopNow {
+        background-color: var(--color-red); // красный фон для кнопки Shop Now
+        color: #fff; // белый текст
+        font-weight: 600;
+        border: 1 px solif var(--color-red);
+
+        // При наведении
+        &:hover {
+            background-color: var(--color-white); // более темный оттенок фона при наведении
+        }
+    }
+}
+
+/* Общий стиль для выдвижного меню */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 40vw;
+    height: 100vh;
+    background-color: #69313b; /* Цвет из примера */
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+@media (max-width: 425px) {
+    .slide-menu{
+        width: 100vw;
+    }
+}
+
+/* Открытое состояние меню */
+.slide-menu.open {
+    right: 0;
+}
+#closeMenu {
+    background: none; /* Убирает фон кнопки */
+    border: none; /* Убирает рамку */
+    padding: 0; /* Убирает отступы внутри кнопки */
+    cursor: pointer; /* Добавляет указатель при наведении */
+    transition: background-color 0.2s ease; /* Добавляет плавный переход для затемнения */
+}
+
+#closeMenu:active {
+    background-color: rgba(0, 0, 0, 0.1); /* Затемнение при нажатии */
+}
+/* Кнопка SHOP NOW */
+.slide-menu .btn-shopNow {
+    margin-top: auto;
+    background: #fff;
+    color: #69313b;
+}
+#shopnow:hover{
+    background-color: var(--color-red); // светлый фон при наведении
+    border-color: #333; // цвет рамки при наведении
+}  

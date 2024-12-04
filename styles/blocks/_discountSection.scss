@@ -1,0 +1,21 @@
+.discountSection{
+    background-color: var(--color-white);
+    h1{
+        @include fluid-text(78, 30);
+        font-weight: 600;
+        margin: 0 auto; /* Гарантирует равные отступы */
+        padding: 0 1.5rem; /* Дополнительные внутренние отступы */
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+}
+@media (max-width:768px){
+    .discountSection{
+        background-color: var(--color-white);
+        h1{
+            padding: 0 1.5rem; /* Дополнительные внутренние отступы */
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+    }
+}

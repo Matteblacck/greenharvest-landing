@@ -1,0 +1,39 @@
+.container-custom {
+    width: 100%;        /* Занимает всю ширину экрана */
+    max-width: 1280px;  /* Ограничение максимальной ширины */
+    margin: 0 auto;     /* Центрирует по горизонтали */
+    padding-left: 20px; 
+    padding-right: 20px;    /* Добавляет внутренние отступы */
+    box-sizing: border-box;
+    border: none;
+}
+
+.position-fixed-Custom {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 0 15px;    /* В случае фиксированного элемента важно учитывать отступы */
+    width: 100%;        /* Занимает всю ширину экрана */
+    max-width: 1280px;  /* Остаётся ограничение */
+    box-sizing: border-box;
+    margin-top: 10px;
+    border: none;
+}
+
+@media (max-width: 1280px) {
+    .position-fixed-Custom {
+        max-width: 100%; /* Убираем ограничение ширины на узких экранах */
+    }
+}
+body{
+    font-family: 'Inter Tight'
+}
+
+html, body {
+    background-color: var(--color-green);
+    scroll-behavior: smooth;
+    /* Отключение hover для мобильных устройств */
+
+}

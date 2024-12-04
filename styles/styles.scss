@@ -1,0 +1,9 @@
+@import 'fonts', 'variable', 'normalize', 'utils', 'mixins';
+
+@import './blocks/header';
+@import './blocks/topSection';
+@import './blocks/discountSection';
+@import './blocks/catalogSection.scss';
+@import './blocks/reviewsSection';
+@import './blocks/bottomSection';
+@import './blocks/footerSection'

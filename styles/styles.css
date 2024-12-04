@@ -1,0 +1,667 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --color-green: #576F35;
+  --color-red: #7A3145;
+  --color-white: #fbfbfb;
+  --color-white-alt:#fbfbfb4d;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+[fill] {
+  fill: currentColor;
+}
+
+[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.container-custom {
+  width: 100%; /* Занимает всю ширину экрана */
+  max-width: 1280px; /* Ограничение максимальной ширины */
+  margin: 0 auto; /* Центрирует по горизонтали */
+  padding-left: 20px;
+  padding-right: 20px; /* Добавляет внутренние отступы */
+  box-sizing: border-box;
+  border: none;
+}
+
+.position-fixed-Custom {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0 15px; /* В случае фиксированного элемента важно учитывать отступы */
+  width: 100%; /* Занимает всю ширину экрана */
+  max-width: 1280px; /* Остаётся ограничение */
+  box-sizing: border-box;
+  margin-top: 10px;
+  border: none;
+}
+
+@media (max-width: 1280px) {
+  .position-fixed-Custom {
+    max-width: 100%; /* Убираем ограничение ширины на узких экранах */
+  }
+}
+body {
+  font-family: "Inter Tight";
+}
+
+html, body {
+  background-color: var(--color-green);
+  scroll-behavior: smooth;
+  /* Отключение hover для мобильных устройств */
+}
+
+header {
+  font-family: "Inter Tight";
+}
+
+.headerButtons button {
+  padding: 12px 12px;
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 18px;
+  background-color: transparent;
+  color: var(--color-white);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.headerButtons button:hover {
+  background-color: #f0f0f0;
+  border-color: #333;
+  cursor: pointer;
+}
+.headerButtons .btn-shopNow {
+  background-color: var(--color-red);
+  color: #fff;
+  font-weight: 600;
+  border: 1 px solif var(--color-red);
+}
+.headerButtons .btn-shopNow:hover {
+  background-color: var(--color-white);
+}
+
+/* Общий стиль для выдвижного меню */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 40vw;
+  height: 100vh;
+  background-color: #69313b; /* Цвет из примера */
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+@media (max-width: 425px) {
+  .slide-menu {
+    width: 100vw;
+  }
+}
+/* Открытое состояние меню */
+.slide-menu.open {
+  right: 0;
+}
+
+#closeMenu {
+  background: none; /* Убирает фон кнопки */
+  border: none; /* Убирает рамку */
+  padding: 0; /* Убирает отступы внутри кнопки */
+  cursor: pointer; /* Добавляет указатель при наведении */
+  transition: background-color 0.2s ease; /* Добавляет плавный переход для затемнения */
+}
+
+#closeMenu:active {
+  background-color: rgba(0, 0, 0, 0.1); /* Затемнение при нажатии */
+}
+
+/* Кнопка SHOP NOW */
+.slide-menu .btn-shopNow {
+  margin-top: auto;
+  background: #fff;
+  color: #69313b;
+}
+
+#shopnow:hover {
+  background-color: var(--color-red);
+  border-color: #333;
+}
+
+.topSection {
+  min-height: 100rem;
+}
+
+.firstblock {
+  height: 800px;
+}
+.firstblock .firstPart {
+  background-color: var(--color-green);
+}
+.firstblock .firstPart h1 {
+  color: var(--color-white);
+  font-size: 4rem;
+  font-weight: 600;
+  padding-top: 300px;
+}
+.firstblock .firstPart p {
+  width: 100%; /* Ширина будет 100% от родительского элемента */
+  max-width: 400px; /* Ограничение максимальной ширины */
+  font-size: 1rem;
+  padding-top: 3rem;
+}
+.firstblock .secondPart {
+  background: url("../imgs/image-3.png") no-repeat center;
+  background-size: cover; /* Изображение будет масштабироваться, сохраняя пропорции и покрывая весь контейнер */
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    height: 150rem;
+  }
+  .firstblock {
+    margin-bottom: 300px;
+  }
+  .firstblock .firstPart {
+    background-color: var(--color-green);
+  }
+  .firstblock .firstPart h1 {
+    color: var(--color-white);
+    font-size: 3.3rem;
+    font-weight: 600;
+    padding-top: 300px;
+  }
+  .firstblock .firstPart p {
+    width: 100%; /* Ширина будет 100% от родительского элемента */
+    max-width: 350px; /* Ограничение максимальной ширины */
+    font-size: 1rem;
+  }
+  .firstblock .secondPart {
+    background: url("../imgs/image-3.png") no-repeat center;
+    background-size: cover; /* Изображение будет масштабироваться, сохраняя пропорции и покрывая весь контейнер */
+    height: 100%;
+  }
+}
+.secondblock {
+  height: 800px;
+}
+
+.secondPart-secondblock {
+  background-color: var(--color-green);
+  padding-top: 20%;
+  padding-bottom: 100px;
+}
+.secondPart-secondblock h2 {
+  color: var(--color-white);
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 auto;
+}
+.secondPart-secondblock p {
+  color: var(--color-white);
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.steps {
+  width: 100%; /* Ширина будет 100% от родительского элемента */
+  max-width: 450px; /* Ограничение максимальной ширины */
+}
+
+.step-card {
+  border: 1px solid white;
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.discountSection {
+  background-color: var(--color-white);
+}
+.discountSection h1 {
+  font-size: clamp(1.875rem, 0.7010869565rem + 5.2173913043vw, 4.875rem);
+  font-weight: 600;
+  margin: 0 auto; /* Гарантирует равные отступы */
+  padding: 0 1.5rem; /* Дополнительные внутренние отступы */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .discountSection {
+    background-color: var(--color-white);
+  }
+  .discountSection h1 {
+    padding: 0 1.5rem; /* Дополнительные внутренние отступы */
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+.catalogSection {
+  background-color: var(--color-red);
+  padding-top: 4.375rem;
+  padding-bottom: 3.75rem;
+}
+.catalogSection .catalogSection-Titles {
+  max-width: 50em;
+}
+.catalogSection .catalogSection-Titles h1 {
+  font-size: clamp(2.75rem, 2.2608695652rem + 2.1739130435vw, 4rem);
+  font-weight: 600;
+  color: var(--color-white);
+}
+.catalogSection .catalogSection-Titles p {
+  font-size: clamp(1rem, 0.902173913rem + 0.4347826087vw, 1.25rem);
+  color: var(--color-white);
+}
+.catalogSection .catalogSection-Cards .card {
+  border-radius: 40px;
+}
+.catalogSection .catalogSection-Cards .card h5 {
+  color: var(--color-red);
+  font-size: 2rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.catalogSection .catalogSection-Cards .card p {
+  font-weight: 600;
+}
+
+.reviewsSection {
+  background-color: var(--color-white);
+  padding-top: 4.375rem;
+  padding-bottom: 5rem;
+}
+.reviewsSection h3 {
+  font-size: clamp(2.5rem, 1.9130434783rem + 2.6086956522vw, 4rem);
+  font-weight: 600;
+}
+.reviewsSection p {
+  font-size: clamp(1rem, 0.9510869565rem + 0.2173913043vw, 1.125rem);
+  max-width: 553px;
+  text-align: start;
+  margin: 0;
+}
+
+.reviews .review-card {
+  border: 1px solid rgba(122, 49, 69, 0.3019607843);
+  border-radius: 24px;
+  padding: 20px 20px;
+  max-height: 258px;
+}
+.reviews .review-card h5 {
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9510869565rem + 0.2173913043vw, 1.125rem);
+  padding: 15px 15px;
+}
+.reviews .review-card p {
+  color: rgba(20, 20, 20, 0.4);
+  text-align: center;
+}
+
+.bottomSection {
+  background-color: var(--color-red);
+  padding-top: 4.375rem;
+  padding-bottom: 5rem;
+  color: var(--color-white);
+}
+.bottomSection h3 {
+  font-size: clamp(2.5rem, 1.9130434783rem + 2.6086956522vw, 4rem);
+  font-weight: 600;
+}
+.bottomSection p {
+  font-size: clamp(1rem, 0.9510869565rem + 0.2173913043vw, 1.125rem);
+  max-width: 742px;
+  text-align: start;
+  margin: 0;
+}
+.bottomSection .contacts-card {
+  min-height: 50vh; /* Задаем минимальную высоту как 50% от высоты окна */
+  max-height: 80vh; /* Максимальная высота — 80% от высоты окна */
+  background-color: var(--color-white);
+  border-radius: 30px; /* Радиус скругления можно уменьшить для адаптивности */
+  padding: 4% 5%; /* Отступы в процентах для более гибкого изменения на разных экранах */
+  box-sizing: border-box; /* Учитываем отступы в расчете ширины и высоты */
+}
+.bottomSection .contacts-card .contacts-text {
+  max-width: 428px;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.152173913rem + 0.4347826087vw, 1.5rem);
+  text-transform: uppercase;
+  color: black;
+}
+.bottomSection .contacts-card input::-moz-placeholder, .bottomSection .contacts-card textarea::-moz-placeholder {
+  color: black; /* Замените на нужный цвет */
+}
+.bottomSection .contacts-card input::placeholder,
+.bottomSection .contacts-card textarea::placeholder {
+  color: black; /* Замените на нужный цвет */
+}
+.bottomSection .contacts-card input {
+  border-radius: 30px;
+  height: 3.25rem;
+  border: 1px solid rgba(20, 20, 20, 0.2);
+}
+.bottomSection .contacts-card textarea {
+  border-radius: 15px;
+  max-height: 5.9375rem;
+  border: 1px solid rgba(20, 20, 20, 0.2);
+}
+.bottomSection .contacts-card .submitBtn {
+  min-height: 3.25rem;
+  height: 3.25rem;
+  max-height: 3.25rem;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-radius: 30px;
+  padding: 10px 10px;
+}
+.bottomSection .contacts-card .submitBtn:active {
+  transform: scale(0.95); /* Кнопка немного уменьшается при нажатии */
+}
+.bottomSection .socials-card {
+  background-color: var(--color-green);
+}
+.bottomSection .socials-card .links {
+  text-transform: lowercase;
+  font-family: "Inter Tight";
+  color: white;
+  font-size: 2rem;
+}
+.bottomSection .socials-card .links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  position: relative; /* Для позиционирования псевдоэлемента */
+}
+.bottomSection .socials-card .links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px; /* Толщина подчеркивания */
+  background-color: var(--color-white); /* Цвет подчеркивания */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.bottomSection .socials-card .links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.footerSection {
+  background-color: var(--color-red);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.footerSection p {
+  font-size: 1rem;
+  color: var(--color-white);
+}
+.footerSection .logotext-text {
+  max-width: 265px;
+  font-weight: 500;
+}
+.footerSection .footer-links {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.footerSection .footer-links .footer-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  position: relative; /* Для позиционирования псевдоэлемента */
+  width: auto; /* Убеждаемся, что ширина зависит только от содержимого */
+  max-width: -moz-fit-content;
+  max-width: fit-content; /* Подстраиваем ширину под текст */
+}
+.footerSection .footer-links .footer-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px; /* Толщина подчеркивания */
+  background-color: var(--color-white); /* Цвет подчеркивания */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.footerSection .footer-links .footer-link:hover::after {
+  width: 100%;
+  left: 0;
+}/*# sourceMappingURL=styles.css.map */

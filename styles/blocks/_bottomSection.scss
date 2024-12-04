@@ -1,0 +1,89 @@
+.bottomSection{
+    background-color: var(--color-red);
+    padding-top: rem(70);
+    padding-bottom: rem(80);
+    color: var(--color-white);
+    h3{
+        @include fluid-text(64,40);
+        font-weight: 600;
+    }
+    p{
+        @include fluid-text(18,16);
+        max-width: 742px;
+        text-align: start;
+        margin: 0;
+    }
+    .contacts-card{
+        min-height: 50vh; /* Задаем минимальную высоту как 50% от высоты окна */
+        max-height: 80vh; /* Максимальная высота — 80% от высоты окна */
+        background-color: var(--color-white);
+        border-radius: 30px; /* Радиус скругления можно уменьшить для адаптивности */
+        padding: 4% 5%; /* Отступы в процентах для более гибкого изменения на разных экранах */
+        box-sizing: border-box; /* Учитываем отступы в расчете ширины и высоты */
+        .contacts-text{
+            max-width: 428px;
+            font-weight: 600;
+            @include fluid-text(24,20);
+            text-transform: uppercase;
+            color: black;
+        }
+        input::placeholder,
+        textarea::placeholder {
+            color: black; /* Замените на нужный цвет */
+        }
+        input{
+            border-radius: 30px;
+            height: rem(52);
+            border: 1px solid #14141433;
+        }
+        textarea{
+            border-radius: 15px;
+            max-height: rem(95);
+            border: 1px solid #14141433;
+        }
+        .submitBtn{
+            min-height: rem(52);
+            height: rem(52);
+            max-height: rem(52);
+            background-color: var(--color-green);
+            color: var(--color-white);
+            border-radius: 30px;
+            padding: 10px 10px;
+        }
+        .submitBtn:active {
+            transform: scale(0.95); /* Кнопка немного уменьшается при нажатии */
+            
+        }
+    }
+    .socials-card{
+        background-color: var(--color-green);
+        .links{
+            text-transform: lowercase;
+            font-family: 'Inter Tight';
+            color: white;
+            font-size: rem(32);
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: 600;
+                position: relative; /* Для позиционирования псевдоэлемента */
+            }
+            a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 3px; /* Толщина подчеркивания */
+                background-color: var(--color-white); /* Цвет подчеркивания */
+                transition: width 0.3s ease, left 0.3s ease;
+              }
+              
+            a:hover::after {
+            width: 100%;
+            left: 0;
+            }
+        } 
+        
+    }
+}

@@ -1,0 +1,34 @@
+.reviewsSection{
+    background-color: var(--color-white);
+    padding-top: rem(70);
+    padding-bottom: rem(80);
+    h3{
+        @include fluid-text(64,40);
+        font-weight: 600;
+    }
+    p{
+        @include fluid-text(18,16);
+        max-width: 553px;
+        text-align: start;
+        margin: 0;
+    }
+}
+.reviews{
+    .review-card{
+        border: 1px solid #7A31454D;
+        border-radius: 24px;
+        padding: 20px 20px;
+        max-height: 258px;
+        
+        h5{
+            font-weight: 600;
+            @include fluid-text(18,16);
+            padding: 15px 15px;
+        }
+        p{
+            color: #14141466;
+            text-align: center;
+
+        }
+    }
+}

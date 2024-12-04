@@ -1,0 +1,43 @@
+.footerSection{
+    background-color: var(--color-red);
+    padding-top: rem(80);
+    padding-bottom: rem(80);
+    p{
+        font-size: rem(16);
+        color: var(--color-white);
+    }
+    .logotext-text{
+        max-width: 265px;
+        font-weight: 500;
+    }
+    .footer-links{
+        font-size: rem(32);
+        font-weight: 600;
+        .footer-link{
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            position: relative; /* Для позиционирования псевдоэлемента */
+            width: auto; /* Убеждаемся, что ширина зависит только от содержимого */
+            max-width: fit-content; /* Подстраиваем ширину под текст */
+        }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px; /* Толщина подчеркивания */
+            background-color: var(--color-white); /* Цвет подчеркивания */
+            transition: width 0.3s ease, left 0.3s ease;
+            
+          }
+          
+        .footer-link:hover::after {
+        width: 100%;
+        left: 0;
+        }
+    }
+    
+}

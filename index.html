@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Фиксированная шапка -->
+    <header class="container-custom position-fixed-Custom py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div >
+                <a href="#">
+                    <img src="./imgs/logo-2.svg" alt="Logo">
+                </a>
+            </div>
+            <div class="headerButtons d-none d-md-block">
+                <ul class="list-unstyled d-flex mb-0">
+                    <li>
+                        <button class="headerbutton btn me-2" onclick="window.location.href='#how-it-works'">How It Works</button>
+                    </li>
+                    <li>
+                        <button class="headerbutton btn me-2" onclick="window.location.href='#vegetables'">Vegetables</button>
+                    </li>
+                    <li>
+                        <button class="headerbutton btn me-2" onclick="window.location.href='#reviews'">Reviews</button>
+                    </li>
+                    <li>
+                        <button class="headerbutton btn btn-shopNow" id="shopnow" style="border-radius: 30px;" onclick="window.location.href='#shopNow'">SHOP NOW</button>
+                    </li>
+                </ul>
+            </div>
+
+           
+            <!-- Бургер-кнопка для экранов ниже md -->
+            <button class="btn d-md-none burger-menu end-0" id="burgerMenu">
+                <img src="./imgs/heroicons-outline_menu-alt-1.svg" alt="">
+            </button>
+        </div>
+        
+    </header>
+    <!-- Выдвижное меню -->
+    <div class="slide-menu headerButtons d-flex flex-column d-md-none justify-content-between " id="slideMenu">
+        <button class="close-menu position-absolute end-0 mt-4 me-4" id="closeMenu" aria-label="Close">
+            <img src="./imgs/x.svg" alt="Close">
+        </button>
+        <div class="menuButtons d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center">
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <button class="menubtn1 headerbutton btn mb-3" onclick="window.location.href='#how-it-works'">How It Works</button>
+                </li>
+                <li>
+                    <button class="menubtn2 headerbutton btn mb-3" onclick="window.location.href='#vegetables'">Vegetables</button>
+                </li>
+                <li>
+                    <button class="menubtn3 headerbutton btn mb-3" onclick="window.location.href='#reviews'">Reviews</button>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-shopNow" style="border-radius: 30px;" onclick="window.location.href='#shopNow'">SHOP NOW</button>
+        </div>
+    </div>
+    <main>
+        <!-- Главная секция(первая) -->
+        <section id="how-it-works" class="topSection" style="background-color: var(--color-green);">
+            <div class="container-custom">
+                <div class="firstblock row">
+                    <div class="col-12 col-md-6 firstPart" style="background-color: var(--color-green);">
+                        <div class="d-flex justify-content-start justify-content-md-center align-items-center ">
+                            <h1 class="">
+                                ORGANIC<br>VEGETABLES<br>TO YOUR DIET<br>TODAY!
+                            </h1>
+                        </div>
+                        <div class="d-flex justify-content-start justify-content-md-center align-items-center pt-4 pb-5">
+                            <p style="color:var(--color-white); font-weight: 400; ">
+                                Our expertly curated vegetable baskets are made with the freshest, highest quality vegetables available. Fresh Harvest Box has got you covered. Fresh, high-quality vegetables in expertly curated vegetable baskets delivered to you.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 secondPart">   
+                    </div>
+                </div>
+    
+
+                <div class="secondblock row">
+                    <div class="col-12 col-md-6 firstPart" style="background-color: var(--color-red);">
+                        <div class="d-flex py-4 justify-content-center align-items-center h-100">
+                            <img src="./imgs/womencooks.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column col-12 col-md-6 secondPart-secondblock align-items-center">
+                        <div class="justify-content-center align-items-center ">
+                            <h2 class="">
+                                TO ORDER YOUR <span style="color: var(--color-white-alt);">VEGETABLE</span> <br>BASKET, SIMPLY FOLLOW <br>THESE <span style="color: var(--color-white-alt);">EASY STEPS</span>
+                            </h2>
+                        </div>
+                        <div class=" pt-4">
+                            <p >
+                                Our baskets are assembled with care and delivered straight to <br>
+                                your doorstep, so you can enjoy the taste of fresh fruit without <br>
+                                ever leaving your home.
+                            </p> 
+                        </div>
+                        <div class="steps pt-4">
+                            <div class="step-card d-flex align-items-center ">
+                                <div>
+                                    <img src="./imgs/1.svg" alt="">
+                                </div>
+                                <div class="ps-3">
+                                    Just choose the vegetable you want to order by clicking on the checkboxes next to it.
+                                </div>
+                            </div>
+                            <div class="step-card d-flex align-items-center mt-3">
+                                <div>
+                                    <img src="./imgs/2.svg" alt="">
+                                </div>
+                                <div class="ps-3">
+                                    Just choose the vegetable you want to order by clicking on the checkboxes next to it.
+                                </div>
+                            </div>
+                            <div class="step-card d-flex align-items-center mt-3">
+                                <div>
+                                    <img src="./imgs/3.svg" alt="">
+                                </div>
+                                <div class="ps-3">
+                                    Just choose the vegetable you want to order by clicking on the checkboxes next to it.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+                           
+        </section>
+        <!-- Discount секция -->
+        <section class="discountSection">
+            <div class="container-custom">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div>
+                        <h1 class="">
+                            <span class="px-2" style="background-color: var(--color-green); color: var(--color-white); border-radius: 12px;">DISCOUNT UP TO 40%!</span> TASTE
+                            THE VITAMINS AND KEEP
+                            YOUR HEALTH
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Каталог organic vegetables секция -->
+        <section id="vegetables" class="catalogSection">
+            <div class="container-custom">
+                <div class="catalogSection-Titles">
+                    <h1 class="text-start mb-4">ORGANIC <br> <span class="" style="color: var(--color-white-alt);">VEGETABLES</span></h1>
+                    <p class="text-start mb-5">
+                        Our organic vegetables are hand-picked from local farms and delivered straight to your doorstep, ensuring that you get the freshest and most nutritious produce possible.
+                    </p>
+                </div>
+                <div class="catalogSection-Cards row gy-4">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3">
+                            <div class="card-body">
+                                <h5 class="card-title pb-2">eggplant</h5>
+                                <p class="card-text ">60 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot.png" class="card-img-top" alt="Eggplant">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3">
+                            <div class="card-body">
+                                <h5 class="card-title">leek</h5>
+                                <p class="card-text">50 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot-2.png" class="card-img-top" alt="Leek">
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">mushrooms</h5>
+                                <p class="card-text">40 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot-3.png" class="card-img-top" alt="Mushrooms">
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">corn</h5>
+                                <p class="card-text">60 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot-4.png" class="card-img-top" alt="Corn">
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3">
+                            <div class="card-body">
+                                <h5 class="card-title" id="potatoes" title="sweet potatoes">sweet potatoes</h5>
+                                <p class="card-text">50 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot-5.png" class="card-img-top" alt="Sweet Potatoes">
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card text-start p-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">carrot</h5>
+                                <p class="card-text">40 UAH / KG</p>
+                            </div>
+                            <img src="./imgs/vegetables/carrot-6.png" class="card-img-top" alt="Carrot">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Отзывы секция -->
+        <section id="reviews" class="reviewsSection ">
+            <div class="container-custom">
+                <div class="reviewsTitles">
+                    <h3 class="text-start">
+                        REVIEWS FROM <br>OUR <span style="color: var(--color-green);">CUSTOMERS</span>
+                    </h3>
+                    <p class="py-4 pb-5 ">
+                        Words of our customers: impressions and opinions about the quality of our services and the freshness of our products.
+                    </p>
+                </div>
+                <div class="reviews row gy-4">
+                    <!-- Первый отзыв -->
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <div class="review-card">
+                            <div class="avatar text-center align-items-center">
+                                <img src="./imgs/avatars/image.png" alt="" class="mx-auto d-block">
+                                <h5 class="avatar-name">John Wax</h5>
+                            </div>
+                            <div class="review-text ">   
+                                <p>
+                                    These vegetables are my secret to delicious and healthy meals. The quality is always at the highest level, the aroma and taste are enchanting. I advise every fan of real products!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                     <!-- Второй отзыв -->
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <div class="review-card">
+                            <div class="avatar text-center align-items-center">
+                                <img src="./imgs/avatars/image-2.png" alt="" class="mx-auto d-block">
+                                <h5 class="avatar-name">Victoria Romashenko</h5>
+                            </div>
+                            <div class="review-text">   
+                                <p>
+                                    I love how fast and fresh the vegetables are delivered. Salads always turn out so appetizing, and soups are real masterpieces. The quality is impeccable!                            </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                     <!-- Третий отзыв -->
+                    <div class="col-4 d-md-block d-none">
+                        <div class="review-card">
+                            <div class="d-flex flex-column text-center align-items-center justify-content-center">
+                                <img src="./imgs/avatars/image-3.png" alt="" class="mx-auto d-block">
+                                <h5 class="avatar-name">Ihor Trachuk</h5>
+                            </div>
+                            <div class="review-text text-center">   
+                                <p>
+                                    Recently tried my fresh tomatoes and peppers - amazing! The authenticity of the taste, as if from the garden directly to my table. It is now my main vegetable supplier.                            </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Нижняя секция -->
+        <section id="shopNow" class="bottomSection">
+            <div class="container-custom">
+                <div class="bottomTitles">
+                    <h3 class="text-start">
+                       FRESH <span style="color: var(--color-white-alt);">HARVEST</span> BOX <br>
+                       HAS GOT YOU COVERED
+                    </h3>
+                    <p class="py-4 pb-5 ">
+                        Our boxes are packed with delicious, nutritious vegetables, perfect for anyone looking to eat healthier or support local farmers. Order your box today and start enjoying the best that nature has to offer!                    </p>
+                </div>
+                <div class="contacts">
+                    <div class="row gy-4">
+                        <div class="col-md-6 col-12">
+                            <div class="contact-form-card contacts-card">
+                                <div class="title">
+                                    <p class="contacts-text">
+                                        Ordering <span style="color: var(--color-red);">from us</span> is quick and easy! Fill out the form below and we will contact you !
+                                    </p>
+                                </div>
+                                <form action="/submit" method="post" class="mt-2.5">
+                                    <!-- Поле для имени -->
+                                    <div class="mb-1">
+                                        <label for="full-name" class="form-label">Full Name</label>
+                                        <input type="text" id="full-name" name="full_name" class="form-control" placeholder="Full name" required>
+                                    </div>
+                                    <!-- Поле для электронной почты -->
+                                    <div class="mb-1">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <!-- Поле для комментария -->
+                                    <div class="">
+                                        <label for="comment" class="form-label">Comment</label>
+                                        <textarea id="comment" name="comment" class="form-control" rows="4" placeholder="Comment" required></textarea>
+                                    </div>
+                                    <!-- Кнопка отправки -->
+                                     <div class="mt-3">
+                                        <button type="submit" class="w-100 submitBtn">SEND</button>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="socials-card contacts-card">
+                                <div class="w-100">
+                                    <img class="w-100 h-100" src="./imgs/Rectangle 42473-2.png" alt="">
+                                </div>
+                                <div class="linksWrapper pt-5">
+                                    <p class="links-wrapper" style="color: var(--color-white-alt); font-size: 18px; font-weight:600 ;">Follow us on our social networks:</p>
+                                    <p class="links pt-3">
+                                        <a href="#">instagram</a> / <a href="#">facebook</a> / <a href="#"> youtube</a>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footerSection">
+        <div class="container-custom">
+            <div class="row">
+                <!-- Логотип и текст -->
+                <div class="col-sm-6 col-12 d-flex flex-column align-items-start mb-5">
+                    <div class="mb-2">
+                        <img src="./imgs/logo-2.svg" alt="Logo" class="mb-2">
+                    </div>
+                    <p class="logotext-text">
+                        Whether you're looking for a healthy snack or a thoughtful gift, our fruit baskets are the perfect choice.
+                    </p>
+                </div>
+                <div class="col-sm-6 row d-flex">
+                    <!-- Ссылки -->
+                    <div class="footer-links col-lg-6 d-flex flex-column pb-5">
+                        <a href="#how-it-works" class="mb-4 footer-link">how it works</a>
+                        <a href="#vegetables" class="mb-4 footer-link">vegetables</a>
+                        <a href="#reviews" class="mb-4 footer-link">reviews</a>
+                    </div>
+        
+                    <!-- Контактная информация -->
+                    <div class="col-md-6 d-flex flex-column align-items-start" style="font-weight: 600;">
+                        <p class="mb-2">+380 (68) 443-94-26</p>
+                        <p class="mb-0">1678 S. Pioneer Road Salt Lake City UT 84104</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>

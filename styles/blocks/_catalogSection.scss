@@ -1,0 +1,33 @@
+.catalogSection{
+    background-color: var(--color-red);
+    padding-top: rem(70);
+    padding-bottom: rem(60);
+    .catalogSection-Titles{
+        max-width: 50em;
+        h1{
+            @include fluid-text(64, 44);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+        p{
+            @include fluid-text(20, 16);
+            color: var(--color-white);
+        }
+    }
+    .catalogSection-Cards{
+        .card{
+            border-radius: 40px;
+            h5{
+                color: var(--color-red);
+                font-size: rem(32);
+                font-weight: 600;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            p{
+                font-weight: 600;
+            }
+        }
+    }
+}
